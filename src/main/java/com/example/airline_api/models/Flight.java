@@ -1,8 +1,13 @@
 package com.example.airline_api.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "flights")
 public class Flight {
 
     private long id;
