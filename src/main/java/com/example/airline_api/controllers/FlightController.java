@@ -31,6 +31,7 @@ public class FlightController {
         if (foundFlight.isPresent()){
             return new ResponseEntity<>(foundFlight.get(), HttpStatus.OK);
         }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     // TODO: Add details of a new flight

@@ -18,8 +18,8 @@ public class PassengerService {
     @Autowired
     BookingRepository bookingRepository;
 
-    public void addNewPassenger(Passenger passenger) {
-        passengerRepository.save(passenger);
+    public Passenger addNewPassenger(Passenger passenger) {
+        return passengerRepository.save(passenger);
     }
 
     public List<Passenger> getAllPassengers(){
