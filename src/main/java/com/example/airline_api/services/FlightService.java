@@ -18,8 +18,8 @@ public class FlightService {
     @Autowired
     BookingRepository bookingRepository;
 
-    public void addNewFlight(Flight flight) {
-        flightRepository.save(flight);
+    public Flight addNewFlight(Flight flight) {
+        return flightRepository.save(flight);
     }
 
     public List<Flight> getAllFlights() {
