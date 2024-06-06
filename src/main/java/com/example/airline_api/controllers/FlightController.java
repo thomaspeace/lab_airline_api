@@ -38,7 +38,7 @@ public class FlightController {
     @PostMapping
     public ResponseEntity<Flight> addNewFlight(@RequestBody Flight flight){
         Flight newFlight = flightService.addNewFlight(flight);
-        return new ResponseEntity<>(newFlight, HttpStatus.OK);
+        return new ResponseEntity<>(newFlight, HttpStatus.CREATED);
     }
 
     // TODO: Extension - Cancel flight
