@@ -9,6 +9,8 @@ import org.hibernate.property.access.internal.PropertyAccessStrategyResolverStan
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingService {
 
@@ -21,12 +23,16 @@ public class BookingService {
     @Autowired
     PassengerService passengerService;
 
-    public Booking saveBooking(BookingDTO bookingDTO){
-        Flight flight = flightService.findSingleFlight(bookingDTO.getFlightId()).get();
-        Passenger passenger = passengerService.getSinglePassenger(bookingDTO.getPassengerId()).get();
+    public Booking addNewBooking(BookingDTO bookingDTO){
+        Flight flight = flightService.getFlightById(bookingDTO.getFlightId()).get();
+        Passenger passenger = passengerService.getPassengerById(bookingDTO.getPassengerId()).get();
 
         Booking createdBooking = new Booking(flight, passenger, bookingDTO.getSeatNumber());
 
         return bookingRepository.save(createdBooking);
+    }
+
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
     }
 }

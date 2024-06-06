@@ -18,7 +18,7 @@ public class PassengerService {
     @Autowired
     BookingRepository bookingRepository;
 
-    public void savePassenger(Passenger passenger) {
+    public void addNewPassenger(Passenger passenger) {
         passengerRepository.save(passenger);
     }
 
@@ -26,7 +26,7 @@ public class PassengerService {
         return passengerRepository.findAll();
     }
 
-    public Optional<Passenger> getSinglePassenger(long id){
+    public Optional<Passenger> getPassengerById(long id){
         return passengerRepository.findById(id);
     }
 

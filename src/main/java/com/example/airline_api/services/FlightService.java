@@ -18,7 +18,7 @@ public class FlightService {
     @Autowired
     BookingRepository bookingRepository;
 
-    public void saveFlight(Flight flight) {
+    public void addNewFlight(Flight flight) {
         flightRepository.save(flight);
     }
 
@@ -26,7 +26,7 @@ public class FlightService {
         return flightRepository.findAll();
     }
 
-    public Optional<Flight> findSingleFlight(long id) {
+    public Optional<Flight> getFlightById(long id) {
         return flightRepository.findById(id);
     }
 
