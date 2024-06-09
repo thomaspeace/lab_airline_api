@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -34,5 +35,12 @@ public class BookingService {
 
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
+    }
+
+//    public Optional<Booking> updateMealPreference(long bookingId, String newMeal) {
+//    }
+
+    public Optional<Booking> getBookingById(long id) {
+        return bookingRepository.findById(id);
     }
 }

@@ -20,6 +20,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     PassengerService passengerService;
 
+//    Using BookingRepository BookingService only has the ability to
+//    add a booking with BookingDTO.
     @Autowired
     BookingRepository bookingRepository;
 

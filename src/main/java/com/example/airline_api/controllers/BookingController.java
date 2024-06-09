@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
@@ -30,10 +32,20 @@ public class BookingController {
         return new ResponseEntity<>(newBooking, HttpStatus.CREATED);
     }
 
-    // TODO: Extension - Update passenger meal preference
-    @PatchMapping
-    public ResponseEntity<Booking> updateMealPreference(){
-        return null;
+    // GET BOOKING BY ID
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Booking> getBookingById(@PathVariable long id) {
+        Optional<Booking> optionalBooking = bookingService.getBookingById(id);
+        if (optionalBooking.isPresent()) {
+            return new ResponseEntity<>(optionalBooking.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
+//    // TODO: Extension - Update passenger meal preference
+//    @PatchMapping
+//    public ResponseEntity<Booking> updateMealPreference(long id, String newMeal){
+//        Optional<Booking> optionalBooking = bookingService.get;
+//    }
 
 }
